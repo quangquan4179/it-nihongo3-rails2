@@ -17,7 +17,14 @@
   <% if @book.image.attached? %>
     <%= image_tag @book.image %>
   <% end %>
-</p>
+</p><h2>Review List</h2>
+<ul>
+  <% @book.book_review.each do |book_review|%>
+   <li><%= book_review.review %>
+     (<i><%= book_review.user_id %></i>)</li>
+<% end %>
+</ul>
+
 <h2>Review From</h2>
 <%= form_with(model: @book_review, local: true) do |form| %>
   <div class= "field">
@@ -28,6 +35,13 @@
     <%= form.submit %>
   </div>
 <% end %>
+<h2>Review List</h2>
+<ul>
+  <% @book.book_review.each do |book_review|%>
+   <li><%= book_review.review %>
+     (<i><%= book_review.user_id %></i>)</li>
+<% end %>
+</ul>
 
 
 
